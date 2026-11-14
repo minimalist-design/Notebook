@@ -1,0 +1,55 @@
+/* Design tokens — light "paper" theme only. */
+:root {
+  color-scheme: light;
+
+  /* Families. Plex Math is a per-glyph fallback so ∀, ∈, ℝ, ∑… typed in prose
+     render in Plex rather than a random system font. */
+  --font-prose: "IBM Plex Serif", "IBM Plex Math", Georgia, serif;
+  --font-ui:    "IBM Plex Sans", "IBM Plex Math", system-ui, sans-serif;
+  --font-code:  "IBM Plex Mono", ui-monospace, monospace;
+  --font-label: "IBM Plex Sans Condensed", "IBM Plex Sans", sans-serif;
+  --font-math:  "IBM Plex Math", "IBM Plex Serif", serif;
+
+  /* Paper and ink */
+  --paper:      #faf8f3;
+  --paper-2:    #f4f0e7;
+  --paper-3:    #ece6d9;
+  --rule:       #e1dacb;
+  --rule-2:     #cfc6b4;
+  --ink:        #1d1b17;
+  --ink-2:      #47423a;
+  --ink-3:      #776f62;
+  --ink-4:      #a39a8b;
+
+  --accent:     #1f4e8c;   /* links, focus */
+  --accent-2:   #e3ebf5;
+  --snippet:    #2c6a58;   /* snippets / side entries */
+  --snippet-2:  #e2eee8;
+  --dangling:   #b0502a;
+  --mark:       #f5e3a1;
+  --danger:     #a3302a;
+  --ok:         #3d7a4a;
+
+  --code-bg:    #f1ede4;
+  --code-ink:   #2a2620;
+
+  /* Type scale: 1.25 (major third) */
+  --step--2: 0.64rem;
+  --step--1: 0.8rem;
+  --step-0:  1rem;
+  --step-1:  1.25rem;
+  --step-2:  1.563rem;
+  --step-3:  1.953rem;
+  --step-4:  2.441rem;
+
+  --prose-size: clamp(1.0625rem, 0.96rem + 0.32vw, 1.1875rem);
+  --prose-leading: 1.62;
+  --measure: 66ch;
+
+  --radius: 6px;
+  --shadow: 0 1px 2px rgb(29 27 23 / 0.06), 0 8px 24px rgb(29 27 23 / 0.08);
+  --shadow-lg: 0 2px 6px rgb(29 27 23 / 0.08), 0 24px 64px rgb(29 27 23 / 0.18);
+
+  --nav-width: 264px;
+  --rail-width: 300px;
+}

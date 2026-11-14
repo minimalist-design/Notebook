@@ -1,0 +1,41 @@
+{
+  "name": "notebook",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "vendor": "node scripts/vendor.mjs",
+    "watch": "shadow-cljs watch app",
+    "release": "node scripts/vendor.mjs && shadow-cljs release app",
+    "test": "shadow-cljs compile test"
+  },
+  "devDependencies": {
+    "shadow-cljs": "3.5.14"
+  },
+  "dependencies": {
+    "@codemirror/autocomplete": "6.20.4",
+    "@codemirror/commands": "6.11.1",
+    "@codemirror/lang-markdown": "6.5.2",
+    "@codemirror/language": "6.13.1",
+    "@codemirror/language-data": "6.5.2",
+    "@codemirror/search": "6.7.2",
+    "@codemirror/state": "6.7.6",
+    "@codemirror/view": "6.43.15",
+    "@ibm/plex-math": "1.1.0",
+    "@ibm/plex-mono": "2.5.0",
+    "@ibm/plex-sans": "1.1.0",
+    "@ibm/plex-sans-condensed": "2.0.0",
+    "@ibm/plex-sans-variable": "0.2.0",
+    "@ibm/plex-serif": "2.0.0",
+    "@ibm/plex-serif-variable": "2.0.0",
+    "@lezer/highlight": "1.2.5",
+    "@vscode/markdown-it-katex": "1.1.2",
+    "highlight.js": "11.12.0",
+    "katex": "0.19.1",
+    "markdown-it": "15.0.3",
+    "markdown-it-anchor": "10.1.0",
+    "markdown-it-front-matter": "0.2.4",
+    "mermaid": "12.3.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  }
+}

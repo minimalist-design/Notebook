@@ -1,0 +1,203 @@
+/* Long-form reading typography ---------------------------------------------
+   Articles: IBM Plex Serif body, Plex Sans headings, ~66ch measure.
+   Snippets/side entries: Plex Sans, tighter. */
+
+.prose {
+  font-family: var(--font-prose);
+  font-size: var(--prose-size);
+  line-height: var(--prose-leading);
+  color: var(--ink);
+  font-variant-numeric: proportional-nums;
+  font-feature-settings: "kern", "liga", "calt";
+  hanging-punctuation: first allow-end last;
+  overflow-wrap: break-word;
+}
+
+.prose > * { max-width: var(--measure); }
+.prose > :first-child { margin-top: 0; }
+.prose > :last-child { margin-bottom: 0; }
+
+.prose p {
+  margin: 0 0 1em;
+  text-wrap: pretty;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphenate-limit-chars: 7 3 3;
+}
+
+/* Headings — Plex Sans, semibold, tight tracking, balanced lines */
+.prose h1, .prose h2, .prose h3, .prose h4, .prose h5, .prose h6 {
+  font-family: var(--font-ui);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+  text-wrap: balance;
+  margin: 2.1em 0 0.6em;
+  scroll-margin-top: 1.5rem;
+}
+.prose h1 { font-size: var(--step-3); letter-spacing: -0.02em; margin-top: 1.4em; }
+.prose h2 { font-size: var(--step-2); }
+.prose h3 { font-size: var(--step-1); }
+.prose h4 { font-size: var(--step-0); }
+.prose h5, .prose h6 {
+  font-family: var(--font-label); font-size: 0.8rem;
+  text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-3);
+}
+.prose h2 + p, .prose h3 + p, .prose h4 + p { margin-top: 0; }
+
+.prose strong { font-weight: 600; }
+.prose em { font-style: italic; }
+.prose small { font-size: 0.85em; }
+.prose abbr { font-variant-caps: all-small-caps; letter-spacing: 0.04em; text-decoration: none; }
+
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--accent) 35%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.18em;
+}
+.prose a:hover { text-decoration-color: currentColor; }
+
+/* Wiki-links */
+.prose a.wikilink { text-decoration-style: solid; }
+.prose a.wikilink--snippet {
+  color: var(--snippet);
+  text-decoration-color: color-mix(in srgb, var(--snippet) 40%, transparent);
+}
+.prose a.wikilink--dangling {
+  color: var(--dangling);
+  text-decoration-style: dashed;
+  text-decoration-color: color-mix(in srgb, var(--dangling) 60%, transparent);
+}
+.embed-cycle { color: var(--ink-4); font-family: var(--font-ui); }
+
+/* Lists */
+.prose ul, .prose ol { margin: 0 0 1em; padding-left: 1.4em; }
+.prose li { margin: 0.25em 0; padding-left: 0.15em; }
+.prose li > p { margin-bottom: 0.4em; }
+.prose li::marker { color: var(--ink-3); font-family: var(--font-ui); font-variant-numeric: tabular-nums; }
+.prose ol > li::marker { font-size: 0.9em; }
+.prose ul ul, .prose ol ol, .prose ul ol, .prose ol ul { margin: 0.25em 0; }
+.prose li input[type="checkbox"] { margin-right: 0.4em; }
+
+/* Quotes */
+.prose blockquote {
+  margin: 1.4em 0;
+  padding: 0.1em 0 0.1em 1.2em;
+  border-left: 2px solid var(--rule-2);
+  color: var(--ink-2);
+  font-style: italic;
+}
+.prose blockquote p:last-child { margin-bottom: 0; }
+
+/* Rules — a quiet asterism */
+.prose hr {
+  border: 0; height: auto; margin: 2.4em auto; max-width: var(--measure);
+  text-align: center; color: var(--ink-4);
+}
+.prose hr::before { content: "⁂"; font-size: 1.1em; letter-spacing: 0.2em; }
+
+/* Inline code */
+.prose code:not(pre code) {
+  font-family: var(--font-code);
+  font-size: 0.84em;
+  padding: 0.1em 0.32em;
+  background: var(--code-bg);
+  border-radius: 4px;
+  color: var(--code-ink);
+  font-variant-ligatures: none;
+  white-space: break-spaces;
+}
+
+/* Tables */
+.prose table {
+  width: auto; max-width: 100%;
+  display: block; overflow-x: auto;
+  border-collapse: collapse;
+  margin: 1.5em 0;
+  font-family: var(--font-ui);
+  font-size: 0.86em;
+  font-variant-numeric: tabular-nums lining-nums;
+  line-height: 1.45;
+}
+.prose th, .prose td { padding: 0.45em 0.9em; border-bottom: 1px solid var(--rule); text-align: left; vertical-align: top; }
+.prose th {
+  font-family: var(--font-label); font-weight: 600;
+  font-size: 0.85em; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-2);
+  border-bottom: 1.5px solid var(--ink-2);
+}
+.prose tr:last-child td { border-bottom: 0; }
+
+/* Images, figures */
+.prose img, .prose video { max-width: 100%; height: auto; border-radius: 4px; }
+.prose img.embed-img { display: block; margin: 1.6em 0; }
+.prose p > img.embed-img:only-child { margin: 0; }
+.prose figure { margin: 1.8em 0; }
+.prose figcaption {
+  font-family: var(--font-label); font-size: 0.8rem; color: var(--ink-3);
+  margin-top: 0.6em; letter-spacing: 0.01em;
+}
+.prose .asset-link::before { content: "📎 "; }
+
+/* Math (KaTeX) — KaTeX keeps its own math fonts for correct metrics; \text{}
+   picks up Plex Serif so words inside equations match the prose. */
+.prose .katex { font-size: 1.06em; }
+.prose .katex .text, .prose .katex .textrm { font-family: var(--font-prose); }
+.prose .katex-display {
+  margin: 1.4em 0;
+  overflow-x: auto; overflow-y: hidden;
+  padding: 0.3em 0;
+}
+.prose .katex-error { color: var(--danger); font-family: var(--font-code); font-size: 0.85em; }
+
+/* Mermaid */
+.prose .mermaid-wrap { margin: 1.6em 0; overflow-x: auto; }
+.prose pre.mermaid {
+  background: transparent; margin: 0; padding: 0;
+  font-family: var(--font-code); font-size: 0.8rem; color: var(--ink-3);
+  white-space: pre-wrap; text-align: center;
+}
+.prose pre.mermaid svg { max-width: 100%; height: auto; }
+
+/* Embeds — ![[note]] */
+.embed {
+  max-width: var(--measure);
+  margin: 1.6em 0;
+  padding: 0.85em 1.1em 1em;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 0.93em;
+}
+.embed--snippet { border-left-color: var(--snippet); }
+.embed__head {
+  display: flex; align-items: baseline; justify-content: space-between; gap: 1em;
+  margin-bottom: 0.55em;
+  font-family: var(--font-ui); font-size: 0.85rem; font-weight: 600;
+}
+.embed__head a.wikilink { text-decoration: none; }
+.embed__type {
+  font-family: var(--font-label); font-weight: 500;
+  font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-3);
+}
+.embed__body > :last-child { margin-bottom: 0; }
+.embed--snippet .embed__body { font-family: var(--font-ui); font-size: 0.95em; line-height: 1.55; }
+.embed .embed { background: var(--paper); }
+.embed--loading .embed__body { color: var(--ink-4); font-family: var(--font-ui); }
+
+/* Snippet page & side entries: Plex Sans, compact */
+.prose--snippet, .prose--side {
+  font-family: var(--font-ui);
+  line-height: 1.55;
+}
+.prose--snippet { font-size: 1rem; }
+.prose--side { font-size: 0.86rem; }
+.prose--side > * { max-width: none; }
+.prose--side h1, .prose--side h2, .prose--side h3 { font-size: 0.95rem; margin: 1em 0 0.4em; }
+.prose--side p { hyphens: manual; }
+.prose--side .codeblock { margin: 0.6em 0; }
+.prose--side .codeblock pre { font-size: 0.76rem; padding: 0.7em 0.8em; }
+.prose--side .codeblock__bar { display: none; }
